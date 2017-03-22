@@ -1,0 +1,36 @@
+<div id='shopcar-container'>
+    <h3>购物车</h3>
+
+    <h4 *ngIf='current_user'>{{current_user}}-->购物车...</h4>
+  <table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>num</th>
+    <th>total</th>
+    <th>编辑</th>
+  </tr>
+  <tr *ngFor="let food of shopcar$ | async">
+    <td>{{food.id}}</td>
+    <td id="name">{{food.name}}</td>
+    <td>{{food.price}}</td>
+    <td>
+      <button (click)='decrementNum(food)'>-</button>
+      {{food.num}}
+      <button (click)='actions.incrementNum(food)'>+</button></td>
+    <td class='total'>{{food.total}}</td>
+    <td><button (click)='actions.deleteFood(food)'>delete</button></td>
+  </tr>
+</table> 
+<h3 id='total'>总金额：{{priceTotal$ | async }}</h3>
+<p id='button-space'>
+<button (click)='order()'>提交订单</button>
+<button (click)='cancelOrder()'>撤销订单</button>
+</p>
+
+</div>
+<hr>
+<order *ngIf='isOrder'>
+      <h4 style='color: #046fa5;'>{{current_user}}-->订单</h4>
+</order>

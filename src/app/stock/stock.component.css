@@ -1,0 +1,30 @@
+/*#stock-container{
+  position: absolute;
+  top:360px;
+  left:300px;
+}
+*/
+
+table
+  {
+  border-collapse:collapse;
+  }
+
+table, td, th
+  {
+  border:1px solid black;
+  }
+#name{
+  width:80px;
+}
+
+table tr th,table tr td{
+  text-align: center;
+}
+
+button{
+  background-color: #78909c;
+  border:none;
+  color:#fff;
+  border-radius:4px;
+}

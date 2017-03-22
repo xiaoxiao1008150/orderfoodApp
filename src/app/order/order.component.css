@@ -1,0 +1,22 @@
+/*#order-container{
+  position: absolute;
+  top:60px;
+  left:600px;
+}*/
+
+table
+  {
+  border-collapse:collapse;
+  }
+
+table, td, th
+  {
+  border:1px solid black;
+  }
+#name{
+  width:80px;
+}
+
+table tr th,table tr td{
+  text-align: center;
+}

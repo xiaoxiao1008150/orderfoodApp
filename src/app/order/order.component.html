@@ -1,0 +1,28 @@
+<div id="order-container">
+  <div>
+    <ng-content></ng-content>
+    <h4>总金额{{priceTotal$ | async}}</h4>
+   <table border="1">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>num</th>
+      <th>total</th>
+    </tr>
+    <tr *ngFor="let food of shopcar$ | async">
+      <td id="name">{{food.name}}</td>
+      <td>{{food.price}}</td>
+      <td>{{food.num}}</td>
+      <td>{{food.total}}</td>
+    </tr>
+  </table> 
+  </div>
+ <!--  <button (click)='searchOrderList()'>查看订单列表</button>
+  <div id="order_list" *ngIf='userList'>
+    <ul id="users" *ngFor='let user of userList'>
+       <li>{{user.name}}</li>
+    </ul>
+    llll
+  </div> -->
+</div>
+

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+/*body { padding-top: 70px; }
+img{height: 30px;width:30px;}*/
+
+.form md-input-container{
+  width:100%;
+  margin-bottom:5px;
+}
+

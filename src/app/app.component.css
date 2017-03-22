@@ -1,0 +1,65 @@
+/*.container {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.nav-right{
+  -webkit-flex: 1;
+          flex: 1;
+}
+
+
+md-toolbar {
+  display: -webkit-flex;
+  display: flex;
+}
+
+md-toolbar div{
+  -webkit-flex: 1;
+          flex: 1;
+}
+
+#image{
+  width:40px;
+  height:40px;
+  border-radius:100%;
+}
+
+md-list{
+  text-align: center;
+}*/
+
+#float{
+  float:right;
+  background: none;
+  border: 0;
+}
+
+menu{
+  padding-left: 15px;
+}
+#body-container{
+  display: -webkit-flex;
+  display: flex;
+}
+
+menu,shop-car,stock{
+  -webkit-flex: 1;
+          flex: 1;
+  border-right:1px solid #333;
+  padding-left: 15px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
