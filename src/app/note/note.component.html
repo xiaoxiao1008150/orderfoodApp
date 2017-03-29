@@ -1,0 +1,90 @@
+<div *ngIf='isLoading'>
+  <md-spinner id='load' color='accent'></md-spinner>
+</div>
+
+<div *ngIf='!isLoading'>
+  
+  <div id='wrapper' [@titleState]="screenfull">
+    <ul>
+       <li *ngIf='!isShowSearch' >
+        <button (click)='add()' md-icon-button mdTooltip="新建笔记"
+        [mdTooltipPosition]="'after'" 
+        color='primary'><md-icon>add</md-icon></button>
+      </li>
+       <li>
+        <button md-icon-button color='primary' 
+        mdTooltip="搜索" 
+        (click)='search()'
+        [mdTooltipPosition]="'after'"><md-icon>search</md-icon></button>
+      </li>
+       <li>
+        <button md-icon-button color='primary' 
+        mdTooltip="笔记" 
+        (click)='goToNote()'
+        [mdTooltipPosition]="'after'"><md-icon>note</md-icon></button>
+       </li>
+    </ul>
+  </div>
+
+      <div *ngIf='!isShowSearch' id="note-wrapper" >
+        <div id="text-wrapper" [@titleState]="screenfull">
+        <p id="note">笔记<br /><span style='font-size:16px' *ngIf='noteLength$'><i>{{noteLength$ | async}}条笔记</i></span></p>
+        <div id="title-wrapper">
+           <md-card id='title'*ngIf='show'>
+            <md-card-title>{{title}}</md-card-title>
+            <md-card-content>{{text}} </md-card-content>
+          </md-card>
+         
+          <!-- <div class="title" *ngIf='show'>text：{{text}}</div> -->
+          <div>
+              <md-card class="title" (click)='showNoteText(note)' *ngFor='let note of notes$ | async'> 
+                <p id='delete' (click)='deleteNote(note)'>
+                  <md-icon *ngIf='isDelete' style='color:#fff'>delete</md-icon>
+                  <md-spinner *ngIf='!isDelete'color='accent' id='cached'></md-spinner>
+                </p>
+              <md-card-title>{{note.title}}</md-card-title>
+              <md-card-content> {{note.text}}</md-card-content> 
+          </md-card>
+          </div>
+     
+        </div>
+      </div>
+
+        <div id='content-wrapper'[@writeState]="screenfull">
+          <div id="note" style='text-align: right;margin-right: 20px;'> 
+
+            <button md-icon-button  color='accent' *ngIf='!isShirnk' (click)='spread()'>
+                <md-icon svgIcon="settings-overscan"></md-icon>   
+            </button>
+            <button color='accent' style='color:#fff' md-mini-fab  *ngIf='isShirnk'(click)='shirnk()'>取消</button>
+
+
+          </div>
+          <div id="textarea">
+            <div id='icon-w'>
+              <md-icon id='done' *ngIf='!cached' (click)="saveNote(text,title);">save</md-icon>
+
+              <md-spinner color='accent' id='cached' *ngIf='cached'></md-spinner>
+              <md-icon *ngIf='showCancel' id='cancel' (click)='cancel()'>cancel</md-icon>
+            </div>
+            <!-- <textarea (keyup)='term$.next($event.target.value)' #textInput [(ngModel)]="text" name='textarea'>
+            </textarea> -->
+            
+            <input id='note-input' placeholder='请输入标题...'   #input type="text" [(ngModel)]="title" name='input'>
+            <textarea  #textInput  [(ngModel)]="text" name='textarea'>
+            </textarea>
+          </div>
+        </div>
+
+      </div>
+
+<search *ngIf='isShowSearch' (searchNotes)="searchNotes($event)"></search>
+</div>
+
+
+
+
+
+
+
+

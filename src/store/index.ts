@@ -1,24 +1,18 @@
 import { combineReducers } from 'redux';
 // const persistState = require('redux-localstorage');
 // import persistState from 'redux-localstorage'
-import { shopCarReducer,shopCarDemo } from './shop-car.reducer';
-import { stockReducer,StockDemo} from './stock.reducer';
-import { userReducer,UserDemo } from './user.reducer';
-import { stockInfoReducer,StockInfoDemo } from './stock-info.reducer';
+import { noteReducer,noteDemo } from './note.reducer';
+import { noteSearchReducer} from './search.reducer';
 
 
 export class IAppState {
-  user?:UserDemo;
-  shopcar?: shopCarDemo;
-  stock?: StockDemo;
-  stockinfo?:StockInfoDemo;
+  note?:noteDemo;
+  noteSearch?:noteDemo;
 };
 
 export const rootReducer = combineReducers<IAppState>({
-  shopcar: shopCarReducer,
-  stock: stockReducer,
-  user: userReducer,
-  stockinfo:stockInfoReducer
+  note: noteReducer,
+  noteSearch:noteSearchReducer
 });
 
 // export const enhancers = [

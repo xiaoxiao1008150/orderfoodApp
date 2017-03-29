@@ -1,0 +1,60 @@
+#wrapper{
+  width:70px;
+  height:100%;
+  background:#ececec;
+  position: absolute;
+  color:#878787;
+}
+ul{
+  margin:0;
+  padding:80px 15px 15px;
+  list-style-type:none;
+  /*margin-top:80px;*/
+}
+
+ul li{
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  margin-bottom:15px;
+  width:35px;
+  height:35px;
+}
+
+ul li button{
+  width:35px;
+  height:35px;
+  line-height: 35px;
+}
+
+.mat-card{
+  padding:5px 5px 10px 8px;
+}
+
+
+
+#load{
+  display: block;
+  margin: 100px auto;
+}
+
+.mat-card-title{
+  font-size:18px;
+}
+
+#select{
+  width: 100%;
+}
+
+#select li{
+  height: 20px;
+}
+#sort input{
+      display: block;
+    height: 30px;
+    width: 100%;
+}
+
+
+
+
+

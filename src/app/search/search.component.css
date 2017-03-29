@@ -1,0 +1,24 @@
+md-input-container{
+    width: calc(100% - 250px);
+    font-size: 25px;
+    margin: 0 auto;
+    display: block;
+}
+
+#search{
+      /*padding-top: 130px;*/
+      height: 70px;
+      /*padding-top: 25px;*/
+}
+.mat-input-prefix{
+  padding-left:20px;
+}
+
+/*copy note.css */
+.mat-card{
+  padding:5px 0 0 10px ;
+}
+
+/*#note-wrapper{
+  height: calc(100% - 110px);
+}*/

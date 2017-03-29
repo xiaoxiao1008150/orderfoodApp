@@ -1,0 +1,43 @@
+<div id="search-wrapper">
+    <div id="search"  [@searchState]="signal">
+    <md-input-container>
+      <input mdInput #searchInput (keyup.enter)='term$.next($event.target.value)' placeholder="搜索笔记">
+    </md-input-container>
+  </div>
+ 
+  <div *ngIf='zero' style='padding-left: 110px'>您搜索的{{note_name}}日记不存在，请重新搜索</div>
+  </div>
+
+ <div  style='height: calc(100% - 50px);margin-top: 130px;' *ngIf='isShowSearchResult' id="note-wrapper">
+      <div  id="text-wrapper">
+      <div id="title-wrapper">
+    
+       
+        <div>
+            <md-card class="title" (click)='showNoteText(note)' *ngFor='let note of noteSearch$ | async'> 
+              <p id='delete' (click)='deleteNote(note)'>
+                 <md-icon *ngIf='isDelete' style='color:#fff'>delete</md-icon>
+                <md-spinner id='cached' *ngIf='!isDelete'color='accent'></md-spinner>
+              </p>
+            <md-card-title>{{note.title}}</md-card-title>
+            <md-card-content> {{note.text}}</md-card-content> 
+        </md-card>
+        </div>
+   
+      </div>
+    </div>
+
+      <div  id='content-wrapper'>
+        <div id="textarea">
+          <div id='icon-w'>
+            <md-icon id='done' *ngIf='!cached' (click)="saveNote(text,title);">done</md-icon>
+            <md-spinner color='accent' id='cached' *ngIf='cached'></md-spinner>
+          </div>
+          
+          <input id='note-input' #input type="text" [(ngModel)]="title" name='input'>
+          <textarea  #textInput  [(ngModel)]="text" name='textarea'>
+          </textarea>
+        </div>
+      </div>
+
+    </div>
